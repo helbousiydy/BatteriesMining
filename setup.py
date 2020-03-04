@@ -37,6 +37,6 @@ setup(
         "Topic :: Communications",
     ],
 
-    license="Licence PINE", install_requires=['nltk', 'xlsxwriter', 'numpy']
+    license="Licence PINE", install_requires=['nltk', 'xlsxwriter', 'pdfminer', 'tika', 'beautifulsoup4', 'numpy']
 
 )
