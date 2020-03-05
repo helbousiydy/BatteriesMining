@@ -1,52 +1,67 @@
 KeyWordsExtractions
 ========================================================
 
-Add your comments
+Add your personnal description of your project (about the library) ..
 
-Please, do not hesitate to discover the team of researchers behind the librairy and also the ARTISTIC project
-also involved : [ARTISTIC](https://www.u-picardie.fr/erc-artistic/?L=0)
+Please, do not hesitate to discover the team of researchers behind the library and also the ARTISTIC project
+involved : [ARTISTIC](https://www.u-picardie.fr/erc-artistic/?L=0)
 
 
 Setup
 ========================================================
-We ask you to get a virtual environment such as **conda**. Go to their webpage and download
+We ask you to get a virtual environment such as **conda**. Go to their webpage and [download](https://www.anaconda.com/distribution/)
 it. All dependencies will be installed on your environment.
 
 Note that you need to follow the way below to install KeyWordsExtraction :
 
-1. Clone the repository
-2. Enter into the directory at the root where the **setup.py** file is located
+1. Be sure you have a version of Python greater than 3.6.
+2. Following Python libraries used to be already installed : tika, nltk, pdfminer.
+3. Dowanload all necessary ressources from nltk. Open a Python shell and launch these commands :
 
-Now open a terminal and try theses command lines :
 ```python
-pip install KeyWordsExtraction
+import nltk
+nltk.download()
 ```
-or 
+Then click on 'download' inside the installation window that appears.
+
+From this starting point, you can install the package through :
+```python
+pip install KeyWordsExtractions
+```
+
+or, go to the GitHub repository webpage :
+
+1. Clone the repository
+2. Open a terminal into the directory at the root where the **setup.py** file is located,
+and launch :
+
 ```python
 python setup.py install
 ```
 
-For installation and usage, it works with python3.x and upper versions with dependencies.
-Make sure all libraris required are installed with the right version.
-In the case python modules error occur, please upgrade the packages indicated by :
+Make sure all libraries required are installed with the right version.
+In the case python errors occur, please upgrade the packages indicated by :
+
+
 ```python
 pip install [name_of_package] --upgrade
+```
+or
+```python
+python -m pip install --upgrade [name_of_package]
 ```
 
 Example
 ========================================================
 
 
-There is an example notebook providing what the library is able to do. Check it 
+There is a notebook as example providing what the library is able to do. Check it 
 directly on the Github page, or with [Jupyter](https://jupyter.org/install) on your own session.
 
-##### Run a test
+Please note, due to rigth restrictions, all pdf for the notebook are not available. You will be able
+to see title, without acces. That is why we recommand you to test functions on your own, not directly
+with the example provided.
 
-```python
-
-print('make a test after ..')
-
-```
 
  Authors
  ========================================================

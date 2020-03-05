@@ -1,42 +1,34 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__all__ = ['texttowords', 'Unit_Num', 'indices_Crate', 'get_Crate', 'Multipl_Replace']
+# __all__ = ['texttowords', 'Unit_Num', 'indices_Crate', 'get_Crate', 'Multipl_Replace']
 
 import re
 import numpy as np
 import itertools
 
+__all__ = ['get_Crate', 'indices_Crate']
+
 
 def texttowords(text):
-
     """
     :param text: text of interest
     :return: list of words after splitting the text
     """
-
     liste = ['@', '#', '©', '␣', '', '$']
     final_text = ''.join(e for e in text if e not in liste)
     final_text = re.sub('\u242em', 'μm', final_text)
     final_text = re.sub('−', '-', final_text)
     words = final_text.split()
-
     return words
 
 
 def Unit_Num(s):
-    """
-
-    :param s:
-    :return:
-    """
-
-    for j, c in enumerate(s):
+    for i, c in enumerate(s):
         if not c.isdigit() and c != '.':
             break
-    numero = s[:j]
-    unit = s[j:]
-
+    numero = s[:i]
+    unit = s[i:]
     return unit, numero
 
 
@@ -45,7 +37,6 @@ def indices_Crate(text):
     :param text: the text of interest
     :return: the index of current densities that has been mentioned in text
     """
-
     text = text.replace('-', '-')
     text = text.replace('−', '-')
     text = text.replace('-', '-')
@@ -81,34 +72,34 @@ def indices_Crate(text):
                 words_yes[w] = words[w].replace('(', '').replace(')', '').replace(',', '').replace(';', '')
                 if words_yes[w] == '.' or words_yes[w] == '/':
                     words_yes[w] = words_yes[w][:-1]
-            except ValueError:
+            except:
                 pass
             w += 1
         if words_yes[i].endswith('mA'):
             try:
                 if words_yes[i + 1].endswith('g-1'):
                     cmA_h_g_1.append(i)
-            except ValueError:
+            except:
                 pass
             try:
                 if words_yes[i + 1] == '/g':
                     cmah___g_indices.append(i)
-            except ValueError:
+            except:
                 pass
             try:
                 if words_yes[i + 1] == 'g':
                     cmA_h_g.append(i)
-            except ValueError:
+            except:
                 pass
             try:
                 if words_yes[i + 1] == 'g1':
                     cmA_h1_g1.append(i)
-            except ValueError:
+            except:
                 pass
             try:
                 if words_yes[i + 1] == 'g' and words_yes[i + 2] == '1':
                     cmA_hg_1.append(i)
-            except ValueError:
+            except:
                 pass
     c_rate_indices6 = []
     for i in cm_indices:
@@ -119,20 +110,18 @@ def indices_Crate(text):
                 words_yes[w] = words[w].replace('(', '').replace(')', '').replace(',', '').replace(';', '')
                 if words_yes[w].endswith('.') or words_yes[w].endswith('/'):
                     words_yes[w] = words_yes[w][:-1]
-            except ValueError:
+            except:
                 pass
             w += 1
         if words_yes[i].endswith('m'):
             try:
-                if words_yes[i + 1] == 'A' and (words_yes[i + 2] == 'g' or words_yes[i + 2] == 'g-1' or words_yes[i + 2]
-                                                == 'g-' or words_yes[i + 2] == 'g1' or words_yes[i + 2] == '/g' or
-                                                (words_yes[i + 2] == '/' and (words_yes[i + 3] == 'g' or
-                                                                              words_yes[i + 3] == 'g1')) or
-                                                (words_yes[i + 2] == '.' and (words_yes[i + 3] == 'g' or
-                                                                              words_yes[i + 3] == 'g1' or
-                                                                              words_yes[i + 3] == 'g-1'))):
+                if words_yes[i + 1] == 'A' and (
+                    words_yes[i + 2] == 'g' or words_yes[i + 2] == 'g-1' or words_yes[i + 2] == 'g-' or words_yes[i + 2] == 'g1' or
+                    words_yes[i + 2] == '/g' or (words_yes[i + 2] == '/' and (words_yes[i + 3] == 'g' or words_yes[i + 3] == 'g1')) or (
+                            words_yes[i + 2] == '.' and
+                            (words_yes[i + 3] == 'g' or words_yes[i + 3] == 'g1' or words_yes[i + 3] == 'g-1'))):
                     c_rate_indices6.append(i)
-            except ValueError:
+            except:
                 pass
 
     c_rate_indices7 = []
@@ -145,29 +134,23 @@ def indices_Crate(text):
                 words_yes[w] = words[w].replace('(', '').replace(')', '').replace(',', '').replace(';', '')
                 if words_yes[w].endswith('.') or words_yes[w].endswith('/'):
                     words_yes[w] = words_yes[w][:-1]
-            except ValueError:
+            except:
                 pass
             w += 1
         if words_yes[i].endswith('A'):
             try:
-                if words_yes[i + 1] == 'kg' or words_yes[i + 1] == 'kg-1' or words_yes[i + 1] == 'kg-' or words_yes[
-                    i + 1] == 'kg1' or \
-                        words_yes[i + 1] == '/kg' or (
-                        words_yes[i + 1] == '/' and (words_yes[i + 1] == 'kg' or words_yes[i + 2] == 'kg1')) or (
-                        words_yes[i + 2] == '.' and (
-                        words_yes[i + 2] == 'kg' or words_yes[i + 2] == 'kg1' or words_yes[i + 2] == 'kg-1')):
+                if words_yes[i + 1] == 'kg' or words_yes[i + 1] == 'kg-1' or words_yes[i + 1] == 'kg-' or words_yes[i + 1] == 'kg1' or \
+                    words_yes[i + 1] == '/kg' or (
+                    words_yes[i + 1] == '/' and (words_yes[i + 1] == 'kg' or words_yes[i + 2] == 'kg1')) or (words_yes[i + 2] == '.' and (words_yes[i + 2] == 'kg' or words_yes[i + 2] == 'kg1' or words_yes[i + 2] == 'kg-1')):
                     c_rate_indices7.append(i)
-            except ValueError:
+            except:
                 pass
             try:
-                if words_yes[i + 1] == 'g' or words_yes[i + 1] == 'g-1' or words_yes[i + 1] == 'g-' or words_yes[
-                    i + 1] == 'g1' or \
-                        words_yes[i + 1] == '/g' or (
-                        words_yes[i + 1] == '/' and (words_yes[i + 1] == 'g' or words_yes[i + 2] == 'g1')) or (
-                        words_yes[i + 2] == '.' and (words_yes[i + 2] == 'g' or
-                                                     words_yes[i + 2] == 'g1' or words_yes[i + 2] == 'g-1')):
+                if words_yes[i + 1] == 'g' or words_yes[i + 1] == 'g-1' or words_yes[i + 1] == 'g-' or words_yes[i + 1] == 'g1' or \
+                        words_yes[i + 1] == '/g' or (words_yes[i + 1] == '/' and (words_yes[i + 1] == 'g' or words_yes[i + 2] == 'g1')) or (words_yes[i + 2] == '.' and (words_yes[i + 2] == 'g' or
+                        words_yes[i + 2] == 'g1' or words_yes[i + 2] == 'g-1')):
                     c_rate_indices77.append(i)
-            except ValueError:
+            except:
                 pass
 
     indices_Crate_mg = np.append(cmah__g_indices, cmahg_indices).astype(int)
@@ -178,10 +161,10 @@ def indices_Crate(text):
     indices_Crate_Ag = np.append(indices_Crate_Ag, cmah_g__3indices).astype(int)
     LL_C_mg = [cmah_g__indices, cmA_h_g_1, cmah___g_indices, cmA_h_g, cmA_h1_g1, cmA_hg_1, c_rate_indices6]
     LL_Akg = [cmah_g__6indices, c_rate_indices7, c_rate_indices77]
-    for w in LL_C_mg:
-        indices_Crate_mg = np.append(indices_Crate_mg, w).astype(int)
-    for w in LL_Akg:
-        indices_Crate_Akg = np.append(indices_Crate_Akg, w).astype(int)
+    for l in LL_C_mg:
+        indices_Crate_mg = np.append(indices_Crate_mg, l).astype(int)
+    for l in LL_Akg:
+        indices_Crate_Akg = np.append(indices_Crate_Akg, l).astype(int)
 
     indices_Crate_C = np.append(indices_Crate_Ag, indices_Crate_mg).astype(int)
     indices_Crate_C = np.append(indices_Crate_C, indices_Crate_Akg).astype(int)
@@ -190,9 +173,7 @@ def indices_Crate(text):
     return [indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crate_Ag, c_rate_indices77, indices_Crate_cm]
 
 
-def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crate_Ag, c_rate_indices77,
-              indices_Crate_cm, text):
-
+def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crate_Ag, c_rate_indices77, indices_Crate_cm, text):
     """
     :param indices_Crate_C: all index of current densities that has been mentioned in text
     :param indices_Crate_mg: all index of current densities that has been mentioned in text using the unit = 'mA/g'
@@ -203,7 +184,6 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
     :param text: text of interest
     :return: current density and c_rate are reported in the text if yes
     """
-
     text = text.replace('-', '-')
     text = text.replace('−', '-')
     text = text.replace('-', '-')
@@ -213,12 +193,12 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
     C_rate = []
     for elem in words:
         if elem[0].isdigit() and ('C' in elem) and ('' not in elem) and ('°' not in elem) and ('◦' not in elem):
-            if (elem[-1:].isalpha() and ('°' not in elem) and ((elem.endswith('C') and elem[-2:].isdigit()) or
-                                                               elem.endswith('rate') or elem.endswith('Rate') or
-                                                               elem.endswith('discharge') or elem.endswith('capacity')
-                                                               or elem.endswith('Capacity'))) or \
-                    ((elem[-1:] == ',' or elem[-1:] == ';' or elem[-1:] == '.') and elem[-2] == 'C') and \
-                    len(elem) <= 10:
+            if (elem[-1:].isalpha() and ('°' not in elem) and (
+                    (elem.endswith('C') and elem[-2:].isdigit()) or elem.endswith('rate') or elem.endswith(
+                'Rate') or elem.endswith('discharge') or
+                    elem.endswith('capacity') or elem.endswith('Capacity'))) or (
+                    (elem[-1:] == ',' or elem[-1:] == ';' or elem[-1:] == '.') and elem[-2] == 'C') \
+                    and len(elem) <= 10:
                 C_rate.append([elem, words.index(elem)])
 
         if elem.startswith('C/') and elem.replace('.', '').replace(',', '')[-1:].isdigit():
@@ -226,24 +206,23 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
             if len(nums) == 1:
                 try:
                     C_rate.append([str(round(1 / nums[0], 2)) + 'C', words.index(elem)])
-                except ValueError:
+                except:
                     pass
 
-    c_rate_list = ['C-rate', 'c-rate', 'C-discharge', 'c-discharge', 'C-capacity', 'c-capacity', 'C-Rate', 'c-Rate',
-                   'C-rate.', 'C-rate,'
-                              'C-Discharge', 'c-Discharge', 'C-Capacity', 'c-Capacity']
+    c_rate_list = ['C-rate', 'c-rate', 'C-discharge', 'c-discharge', 'C-capacity', 'c-capacity', 'C-Rate', 'c-Rate', 'C-rate.', 'C-rate,'
+                   'C-Discharge', 'c-Discharge', 'C-Capacity', 'c-Capacity']
     c_rate_indices = [i for i, s in enumerate(words) if any(elem in s for elem in c_rate_list)]
     C = [i for i, s in enumerate(words) if 'C' in s]
 
     for i in indices_Crate_C:
-        words_yes = ['' for i in range(len(words))]
+        words_yes = ['' for x in range(len(words))]
         w = i - 3
         while w <= i + 3:
             try:
                 words_yes[w] = words[w].replace('(', '').replace(')', '').replace(',', '').replace(';', '')
                 if words_yes[w].endswith('.') or words_yes[w].endswith('/'):
                     words_yes[w] = words_yes[w][:-1]
-            except ValueError:
+            except:
                 pass
             w += 1
         if i in indices_Crate_cm:
@@ -262,8 +241,7 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
             if ('.' in words_yes[i - 1]) and ('e' not in words_yes[i - 1]) and ('-' not in words_yes[i - 1]):
                 if words_yes[i - 1].replace('.', '').isdigit():
                     C_rate.append([str(words_yes[i - 1]) + 'mA/cm2', i])
-            # if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
-            if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
+            if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
                 for stuff in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
                     C_rate.append([str(stuff) + 'mA/cm2', i])
             val = 0
@@ -272,14 +250,12 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
                     val = float(words_yes[i - 1])
                     if i > 1 and len(words_yes[i - 1]) == 3:
                         if words_yes[i - 2].replace('.', '', 1).isdigit():
-                            if ((words_yes[i - 2] + words_yes[i - 1]) in text) or (
-                                    (words_yes[i - 2] + ' ' + words_yes[i - 1]) in text) or (
-                                    (words_yes[i - 2] + ',' + words_yes[i - 1]) in text):
+                            if ((words_yes[i - 2] + words_yes[i - 1]) in text) or ((words_yes[i - 2] + ' ' + words_yes[i - 1]) in text) or ((words_yes[i - 2] + ',' + words_yes[i - 1]) in text):
                                 val = float(words_yes[i - 2]) * 1000 + val
 
                 if val > 0:
                     C_rate.append([str(val) + 'mA/cm2', i])
-            except ValueError:
+            except:
                 pass
 
         indices_Crate_Akg = [i for i in indices_Crate_Akg if i not in indices_Crate_cm]
@@ -299,8 +275,7 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
             if ('.' in words_yes[i - 1]) and ('e' not in words_yes[i - 1]) and ('-' not in words_yes[i - 1]):
                 if words_yes[i - 1].replace('.', '').isdigit():
                     C_rate.append([str(words_yes[i - 1]) + 'mA/g', i])
-            # if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
-            if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
+            if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
                 for stuff in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
                     C_rate.append([str(stuff) + 'mA/g', i])
             val = 0
@@ -309,14 +284,12 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
                     val = float(words_yes[i - 1])
                     if i > 1 and len(words_yes[i - 1]) == 3:
                         if words_yes[i - 2].replace('.', '', 1).isdigit():
-                            if ((words_yes[i - 2] + words_yes[i - 1]) in text) or (
-                                    (words_yes[i - 2] + ' ' + words_yes[i - 1]) in text) or (
-                                    (words_yes[i - 2] + ',' + words_yes[i - 1]) in text):
+                            if ((words_yes[i - 2] + words_yes[i - 1]) in text) or ((words_yes[i - 2] + ' ' + words_yes[i - 1]) in text) or ((words_yes[i - 2] + ',' + words_yes[i - 1]) in text):
                                 val = float(words_yes[i - 2]) * 1000 + val
 
                 if val > 0:
                     C_rate.append([str(val) + 'mA/g', i])
-            except ValueError:
+            except:
                 pass
         indices_Crate_Akg = [i for i in indices_Crate_Akg if i not in indices_Crate_mg]
         if (i in indices_Crate_Akg) and (i not in c_rate_indices77):
@@ -335,8 +308,7 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
             if ('.' in words_yes[i - 1]) and ('e' not in words_yes[i - 1]) and ('-' not in words_yes[i - 1]):
                 if words_yes[i - 1].replace('.', '').isdigit():
                     C_rate.append([str(words_yes[i - 1]) + 'A/kg', i])
-            # if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
-            if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
+            if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
                 for stuff in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
                     C_rate.append([str(stuff) + 'A/Kg', i])
             val = 0
@@ -352,7 +324,7 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
 
                 if val > 0:
                     C_rate.append([str(val) + 'A/kg', i])
-            except ValueError:
+            except:
                 pass
         if i in c_rate_indices77:
             if 'e' in words_yes[i - 1]:
@@ -370,8 +342,7 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
             if ('.' in words_yes[i - 1]) and ('e' not in words_yes[i - 1]) and ('-' not in words_yes[i - 1]):
                 if words_yes[i - 1].replace('.', '').isdigit():
                     C_rate.append([str(words_yes[i - 1]) + 'A/g', i])
-            # if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
-            if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
+            if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
                 for stuff in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
                     C_rate.append([str(stuff) + 'A/g', i])
             val = 0
@@ -380,14 +351,12 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
                     val = float(words_yes[i - 1])
                     if i > 1 and len(words_yes[i - 1]) == 3:
                         if words_yes[i - 2].replace('.', '', 1).isdigit():
-                            if ((words_yes[i - 2] + words_yes[i - 1]) in text) or (
-                                    (words_yes[i - 2] + ' ' + words_yes[i - 1]) in text) or (
-                                    (words_yes[i - 2] + ',' + words_yes[i - 1]) in text):
+                            if ((words_yes[i - 2] + words_yes[i - 1]) in text) or ((words_yes[i - 2] + ' ' + words_yes[i - 1]) in text) or ((words_yes[i - 2] + ',' + words_yes[i - 1]) in text):
                                 val = float(words_yes[i - 2]) * 1000 + val
 
                 if val > 0:
                     C_rate.append([str(val) + 'A/g', i])
-            except ValueError:
+            except:
                 pass
 
         indices_Crate_Ag = [i for i in indices_Crate_Ag if i not in indices_Crate_Akg]
@@ -409,8 +378,7 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
                 if words_yes[i - 1].replace('.', '').isdigit():
                     C_rate.append([str(words_yes[i - 1]) + 'A/g', i])
 
-            # if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
-            if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
+            if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
                 for stuff in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
                     C_rate.append([str(stuff) + 'A/g', i])
             val = 0
@@ -426,11 +394,11 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
 
                 if val > 0:
                     C_rate.append([str(val) + 'A/g', i])
-            except ValueError:
+            except:
                 pass
 
     CC = ['C', 'C-rate', 'c-rate', 'C-discharge', 'c-discharge', 'C-capacity', 'c-capacity', 'C-Rate', 'c-Rate',
-          'C-Discharge', 'c-Discharge', 'C-Capacity', 'c-Capacity']
+                   'C-Discharge', 'c-Discharge', 'C-Capacity', 'c-Capacity']
     for i in C:
         done = 0
         words_yes = ['' for _ in range(len(words))]
@@ -440,7 +408,7 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
                 words_yes[w] = words[w].replace('(', '').replace(')', '').replace(',', '').replace(';', '')
                 if words_yes[w].endswith('.') or words_yes[w].endswith('/'):
                     words_yes[w] = words_yes[w][:-1]
-            except ValueError:
+            except:
                 pass
             w += 1
         unit, num = Unit_Num(words_yes[i])
@@ -451,7 +419,7 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
                 if i not in [item[1] for item in C_rate]:
                     C_rate.append([str(num) + 'C', i])
                     done = 1
-            except ValueError:
+            except:
                 if num.isdigit():
                     if i not in [item[1] for item in C_rate]:
                         C_rate.append([str(num) + 'C', i])
@@ -488,7 +456,7 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
                 words_yes[w] = words[w].replace('(', '').replace(')', '').replace(',', '').replace(';', '')
                 if words_yes[w].endswith('.') or words_yes[w].endswith('/'):
                     words_yes[w] = words_yes[w][:-1]
-            except ValueError:
+            except:
                 pass
             w += 1
         if words_yes[i][0].isdigit():
@@ -522,11 +490,10 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
             w = i - 2
             while w <= i + 2:
                 try:
-                    words_yes[w] = words[w].replace('(', '').replace(')', '').replace(',', '').replace(';', '').replace(
-                        '/', '')
+                    words_yes[w] = words[w].replace('(', '').replace(')', '').replace(',', '').replace(';', '').replace('/', '')
                     if words_yes[w].endswith('.'):
                         words_yes[w] = words_yes[w][:-1]
-                except ValueError:
+                except:
                     pass
                 w += 1
             if 'e' in words_yes[i - 1]:
@@ -556,12 +523,10 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
     C_rate = list(C_rate for C_rate, _ in itertools.groupby(C_rate))
     C_rate.sort()
     C_rate = list(C_rate for C_rate, _ in itertools.groupby(C_rate))
-
     return C_rate
 
 
 def Multipl_Replace(text, T_replace, new_replace):
-
     """
     :param text: text of interest
     :param T_replace: list of element that needed to be replaced in the text
@@ -571,5 +536,5 @@ def Multipl_Replace(text, T_replace, new_replace):
     for item in T_replace:
         if item in text:
             text = text.replace(item, new_replace)
-
     return text
+

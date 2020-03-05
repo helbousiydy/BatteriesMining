@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__all__ = ['convert_pdf_to_txt', 'get_text_from_XML_without_saving', 'most_common', 'average_len',
-           'Converting_Function']
+# __all__ = ['convert_pdf_to_txt', 'get_text_from_XML_without_saving', 'average_len', 'Converting_Function',
+#            'most_common']
+
+__all__ = ['Converting_Function']
 
 from pdfminer.pdfparser import PDFParser
 from pdfminer.pdfpage import PDFPage
@@ -17,20 +19,16 @@ import os
 from bs4 import BeautifulSoup
 import numpy as np
 
-
-# #################### Get The first Page #############################
+##################### Get The first Page #############################
 laparams = pdfminer.layout.LAParams()
 setattr(laparams, 'all_texts', True)
 
-
 def convert_pdf_to_txt(path, pages):
-
     """
     :param path: path to the PDF file
     :param pages: the page of interest
     :return:
     """
-
     resource_manager = PDFResourceManager()
     fake_file_handle = io.StringIO()
     converter = TextConverter(resource_manager, fake_file_handle, laparams=laparams)
@@ -39,31 +37,25 @@ def convert_pdf_to_txt(path, pages):
     password = ""
     maxpages = 0
     caching = True
-    pagenos = set(pages)
-    for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, password=password, caching=caching,
-                                  check_extractable=True):
+    pagenos=set(pages)
+    for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, password=password,caching=caching, check_extractable=True):
         interpreter.process_page(page)
     text = fake_file_handle.getvalue()
     fp.close()
     converter.close()
     fake_file_handle.close()
-
     return text
-
-
 #######################################################################
+
+
 class PDFPageDetailedAggregator(PDFPageAggregator):
-
     """
-    function from: https://stackoverflow.com/questions/15737806/extract-text-using-pdfminer-and-pypdf2-merges-columns?
-    answertab=votes#tab-top
+    function from: https://stackoverflow.com/questions/15737806/extract-text-using-pdfminer-and-pypdf2-merges-columns?answertab=votes#tab-top
     """
-
     def __init__(self, rsrcmgr, pageno=1, laparams=None):
         PDFPageAggregator.__init__(self, rsrcmgr, pageno=pageno, laparams=laparams)
         self.rows = []
         self.page_number = 0
-
     def receive_layout(self, ltpage):
         def render(item, page_number):
             if isinstance(item, LTPage) or isinstance(item, LTTextBox):
@@ -83,17 +75,15 @@ class PDFPageDetailedAggregator(PDFPageAggregator):
             return
         render(ltpage, self.page_number)
         self.page_number += 1
-        self.rows = sorted(self.rows, key=lambda x: (x[0], -x[2]))
+        self.rows = sorted(self.rows, key = lambda x: (x[0], -x[2]))
         self.result = ltpage
 
 
 def get_text_from_XML_without_saving(path):
-
     """
     :param path: path to the XML file
     :return: Text extracted  from the path
     """
-
     tree = open(path, 'r', encoding='utf8')
     soup = BeautifulSoup(tree)
     for script in soup(["script", "style"]):
@@ -106,29 +96,24 @@ def get_text_from_XML_without_saving(path):
 
 
 def most_common(lst):
-
     """
     :param lst: list of value
     :return: :return: the most common value in the list
     """
-
     return max(set(lst), key=lst.count)
 
 
-def average_len(k):
-
-    return sum(map(len, k))/float(len(k))
+def average_len(l):
+  return sum(map(len, l))/float(len(l))
 
 
 def Converting_Function(Path_To_TXTs, new_file):
-
     """
     :param Path_To_TXTs: path to PDFs or/and XML files
     :param new_file: the path to save the TXT format
     """
-
     files_short = np.array([f for f in os.listdir(Path_To_TXTs) if os.path.isfile(os.path.join(Path_To_TXTs, f))])
-    files = np.array([Path_To_TXTs + '\\' + f for f in files_short])
+    files = np.array([Path_To_TXTs + '/' + f for f in files_short])
     for file in files:
         if file.endswith('.pdf'):
             Not_Good = False
@@ -166,7 +151,7 @@ def Converting_Function(Path_To_TXTs, new_file):
                             for item in page_lines:
                                 if item[1] <= (first + 20) and not (item[5].isdigit() and not item[5].endswith('.')):
                                     text1 = text1 + '\n' + item[5]
-                                elif 500 >= item[1] >= (second - 20) and not (
+                                elif item[1] >= (second - 20) and item[1] <= 500 and not (
                                         item[5].isdigit() and not item[5].endswith('.')):
                                     text2 = text2 + '\n' + item[5]
                                 else:
@@ -176,22 +161,22 @@ def Converting_Function(Path_To_TXTs, new_file):
                                 text_all = text_all + text1 + text_middle + text2
                             else:
                                 Not_Good = True
-                        if len(text_all) >= 1500 and Not_Good is False:
+                        if len(text_all) >= 1500 and Not_Good == False:
                             text_all = text_all.replace(' ac.', '~').replace(' a.c.', '~').replace(' a.c', '~')
-                            name = file.split('\\')[-1][:-4]
-                            path = new_file + '\\' + name + '.txt'
+                            name = file.split('/')[-1][:-4]
+                            path = new_file + '/' + name + '.txt'
                             with open(path, 'w', encoding='utf8') as f:
                                 f.write(text_all)
                                 f.close()
                             print('Article ', name, ' is successfully converted')
-                        elif len(text_all) >= 1500 and Not_Good is True:
+                        elif len(text_all) >= 1500 and Not_Good == True:
                             rawText = parser.from_file(file)
                             text = rawText['content']
                             text = os.linesep.join([s for s in text.splitlines() if s])
                             text_all = text.replace(' ac.', '~').replace(' a.c.', '~').replace(' a.c', '~')
                             text_all = " ".join(text_all.split())
-                            name = file.split('\\')[-1][:-4]
-                            path = new_file + '\\' + name + '.txt'
+                            name = file.split('/')[-1][:-4]
+                            path = new_file + '/' + name + '.txt'
                             with open(path, 'w', encoding='utf8') as f:
                                 f.write(text_all)
                                 f.close()
@@ -202,40 +187,40 @@ def Converting_Function(Path_To_TXTs, new_file):
                             text_all = "\n".join([ll.rstrip() for ll in text_all.splitlines() if ll.strip()])
                             if len(text_all) >= 1500:
                                 text_all = text_all.replace(' ac.', '~').replace(' a.c.', '~').replace(' a.c', '~')
-                                name = file.split('\\')[-1][:-4]
-                                path = new_file + '\\' + name + '.txt'
+                                name = file.split('/')[-1][:-4]
+                                path = new_file + '/' + name + '.txt'
                                 with open(path, 'w', encoding='utf8') as f:
                                     f.write(text_all)
                                     f.close()
                                 print('Article ', name, ' is successfully converted')
                             else:
                                 print('The PDF "' + file + '" contain less than 1500 characters !!!')
-                    except ValueError:
+                    except:
                         Prob = True
-                elif average_len(lines) < 20 or Prob is True:
+                elif average_len(lines) < 20 or Prob == True:
                     raw = parser.from_file(file)
                     text_all = raw['content']
                     text_all = "\n".join([ll.rstrip() for ll in text_all.splitlines() if ll.strip()])
                     if len(text_all) >= 1500:
                         text_all = text_all.replace(' ac.', '~').replace(' a.c.', '~').replace(' a.c', '~')
-                        name = file.split('\\')[-1][:-4]
-                        path = new_file + '\\' + name + '.txt'
+                        name = file.split('/')[-1][:-4]
+                        path = new_file + '/' + name + '.txt'
                         with open(path, 'w', encoding='utf8') as f:
                             f.write(text_all)
                             f.close()
                         print('Article ', name, ' is successfully converted')
                     else:
                         print('The PDF "' + file + '" contain less than 1500 characters !!!')
-            except ValueError:
+            except:
                 Prob = True
-            if Prob is True:
+            if Prob == True:
                 raw = parser.from_file(file)
                 text_all = raw['content']
                 text_all = "\n".join([ll.rstrip() for ll in text_all.splitlines() if ll.strip()])
                 if len(text_all) >= 1500:
                     text_all = text_all.replace(' ac.', '~').replace(' a.c.', '~').replace(' a.c', '~')
-                    name = file.split('\\')[-1][:-4]
-                    path = new_file + '\\' + name + '.txt'
+                    name = file.split('/')[-1][:-4]
+                    path = new_file + '/' + name + '.txt'
                     with open(path, 'w', encoding='utf8') as f:
                         f.write(text_all)
                         f.close()
@@ -246,9 +231,12 @@ def Converting_Function(Path_To_TXTs, new_file):
             text_all = get_text_from_XML_without_saving(file)
             text_all = text_all.split('competing financial interest')[0]
             text_all = text_all.replace(' ac.', '~').replace(' a.c.', '~').replace(' a.c', '~')
-            name = file.split('\\')[-1][:-4]
-            path = new_file + '\\' + name + '.txt'
+            name = file.split('/')[-1][:-4]
+            path = new_file + '/' + name + '.txt'
             with open(path, 'w', encoding='utf8') as f:
                 f.write(text_all)
                 f.close()
             print('Article ', name, ' is successfully converted')
+
+
+
