@@ -1,7 +1,7 @@
 KeyWordsExtractions
 ========================================================
 
-Add your personnal description of your project (about the library) ..
+Add your personnal description of your project (about the library) .. Hassna
 
 Please, do not hesitate to discover the team of researchers behind the library and also the ARTISTIC project
 involved : [ARTISTIC](https://www.u-picardie.fr/erc-artistic/?L=0)
