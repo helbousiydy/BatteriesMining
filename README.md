@@ -16,7 +16,7 @@ Note that you need to follow the way below to install KeyWordsExtraction :
 
 1. Be sure you have a version of Python greater than 3.6.
 2. Following Python libraries used to be already installed : tika, nltk, pdfminer.
-3. Dowanload all necessary ressources from nltk. Open a Python shell and launch these commands :
+3. Download all necessary ressources from nltk. Open a Python shell and launch these commands :
 
 ```python
 import nltk
@@ -50,6 +50,12 @@ or
 ```python
 python -m pip install --upgrade [name_of_package]
 ```
+
+Dependencies
+========================================================
+
+For tika package under Windows, you need to installed the following version : 1.23.0. Otherwise, you may not be able to used the os module.
+Please note also, you need to have Java 7+ installed on your system to connect the tika server.
 
 Example
 ========================================================
