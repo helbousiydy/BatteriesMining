@@ -44,7 +44,7 @@ In the case python errors occur, please upgrade the packages indicated by :
 
 
 ```python
-pip install [name_of_package] --upgrade
+pip install --upgrade [name_of_package]
 ```
 or
 ```python
