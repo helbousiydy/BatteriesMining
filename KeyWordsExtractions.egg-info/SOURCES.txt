@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+KeyWordsExtractions/Converting_PDF_Or_XML_To_TXT.py
+KeyWordsExtractions/Current_Density.py
+KeyWordsExtractions/Extracting_Informations.py
+KeyWordsExtractions/Filtring_Functions.py
+KeyWordsExtractions/__init__.py
+KeyWordsExtractions.egg-info/PKG-INFO
+KeyWordsExtractions.egg-info/SOURCES.txt
+KeyWordsExtractions.egg-info/dependency_links.txt
+KeyWordsExtractions.egg-info/requires.txt
+KeyWordsExtractions.egg-info/top_level.txt
