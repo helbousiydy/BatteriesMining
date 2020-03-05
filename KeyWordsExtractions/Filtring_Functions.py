@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# __all__ = ['Filtring_Function', 'Filtring_Classify', 'Clean_text', 'Devide_Title_Abstract_Key', 'copy_paste_text',
-#            'Remove_Duplicat', 'Capitalize_Liste']
-
 import string
 import re
 import os
@@ -148,7 +145,6 @@ def Filtring_Classify(file):
     return title_part, keywords_part, abstract_part
 
 
-#################################################################
 def copy_paste_text(file, path):
     """
     :param file: path to text file
@@ -209,7 +205,6 @@ def Capitalize_Liste(liste):
     return liste
 
 
-############################################
 Batteries_plomb = ['lead–acid battery', 'plomb-battery', 'plomb battery', 'battery plomb', 'batteries plomb',
                    'plomb batteries',
                    'battery-plomb', 'batteries-plomb', 'plomb-batteries',
@@ -281,10 +276,8 @@ Batteries_lithium_Polymer = ['lithium-polymer battery', 'lithium polymer battery
                              'li-poly', 'lithium-poly']
 Batteries_lithium_air = ['lithium–air battery', 'lithium–air batteries', 'li–air', ' li air ']
 Batteries_sodium_ion = ['Sodium Ion Battery', 'sodium-ions batter', 'na ion ', 'na-ions ', 'sodium-ion battery', ' na batter', 'sodium-ions', 'sodium ion batter', 'sodium ions ', 'na-ion batter', ' na-batter', ' na ions ', 'sodium-ions ', ' na ion ', 'na ions batter', 'sodium ions batter', 'sodium ion', 'sodium-ion batter', 'na-ion ', 'na ions ', 'na-ion', 'sodium-ion', 'na ion batter', 'sodium ion ', 'na-ions batter', ' nib ', 'sodium-ion ']
-
 Batteries_Nickel_Fer = ['nickel–iron battery', 'nickel–iron batteries', 'nickel iron battery', 'nickel iron batteries',
                         ' nife battery', 'ni-fe battery', ' nife batteries', 'ni-fe batteries']
-
 Batteries_Magnesium_Sulfur = ['magnesium–sulfur Batter', 'Magnesium–Sulfur Batter', 'magnesium sulfur batter', 'Mg–S batter', 'mg–s batter', ' mg s batter',
                               'magnesium/sulfur batter', 'Magnesium–sulfur (Mg–S) batter', 'magnesium–sulfur (mg–s) batter']
 Batteries_others = ['K-ion batter', 'potassium-ion batter', 'K ion batter', 'potassium ion batter', 'K batter', 'potassium batter', 'Mg-ion batter', 'magnesium-ion batter',
@@ -309,7 +302,6 @@ Batteries_others = ['K-ion batter', 'potassium-ion batter', 'K ion batter', 'pot
                     'Sodium-Sulfur Batter', 'Sodium Sulfur Batter', 'Sulfur Batter', 'Sodium–Air Batter', 'Sodium–Air', ' Sodium Air ', 'Na–Air Batter', 'Na–Air',
                     'Na Air', 'Sodium–O2 Batter', 'Sodium–O2', 'Sodium Air', 'Na–O2 Batter', 'Lithium–Air Batter', 'Lithium–Air', 'Lithium Air', 'Li–Air Batter',
                     'Li–Air', 'Li Air', 'Lithium–O2 Batter', 'Lithium–O2', 'Lithium Air', 'Li–O2 Batter', 'Solid-State', 'Supercapacit', 'Capacitor', 'Redox Flow' , 'Redox-Flow' , 'Solid State']
-
 batteries = [Batteries_lithium_ion, Batteries_sodium_ion]
 BATTERIES = [Batteries_plomb, Batteries_Nickel_cadmium, Batteries_Nickel_metal_hydride, Batteries_lithium_Polymer, Batteries_lithium_air, Batteries_Nickel_Fer,
              Batteries_Magnesium_Sulfur, Batteries_others]

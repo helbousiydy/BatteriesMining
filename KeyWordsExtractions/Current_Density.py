@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# __all__ = ['texttowords', 'Unit_Num', 'indices_Crate', 'get_Crate', 'Multipl_Replace']
-
 import re
 import numpy as np
 import itertools

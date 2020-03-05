@@ -1,19 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# __all__ = ['Capitalize_Liste', 'Remove_Duplicat', 'Clean_text', 'Experimental', 'copy_paste_text1', 'getyear',
-#            'get_distance', 'Get_Sentences_And_After_Containing_Word', 'Get_Sentences_Containing_Word',
-#            'Check_Keywords_CSV', 'Check_Current_Density', 'Check_the_unites_in_sentence_ONE', 'Check_end_Is_number',
-#            'Check_ratio', 'Check_Number_Unit', 'Check_weight_ratio', 'is_number', 'Capitalize',
-#            'Filtring_And_Checking_Keywords', 'Loading_range', 'Words_Before_and_after', 'Save_results_range',
-#            'Save_results', 'Converting_From_PDF_OR_XML_To_TXT']
+__all__ = ['Converting_From_PDF_OR_XML_To_TXT', 'Filtring_And_Checking_Keywords']
 
 
-import string
 import nltk
-from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-import itertools as it
 import re
 import string
 import itertools
@@ -23,7 +15,7 @@ from KeyWordsExtractions.Converting_PDF_Or_XML_To_TXT import Converting_Function
 import os
 import numpy as np
 import xlsxwriter
-__all__ = ['Converting_From_PDF_OR_XML_To_TXT', 'Filtring_And_Checking_Keywords']
+
 stop_words = set(stopwords.words('english'))
 
 
@@ -61,12 +53,6 @@ def Remove_Duplicat(seq):
     seen = set()
     seen_add = seen.add
     return [x for x in seq if not (x in seen or seen_add(x))]
-
-
-##################### Experemental Part Keywords #######################
-
-
-########################################################################
 
 
 def Clean_text(file):
@@ -1201,23 +1187,34 @@ def Save_results_range(results, path):
 
 ######################## Convert PDFs to TXTs ##########################################
 def Converting_From_PDF_OR_XML_To_TXT(Path_To_PDFs, Path_To_TXTs):
+
     """
-    :param Path_To_PDFs: path to all PDFs or XMLs
-    :param Path_To_TXTs: the path to save the TXT format
+
+    This function consists in converting PDF (and/or XML) to TXT format.
+
+    :param Path_To_PDFs: a string with the name of folder that contains all PDFs or XMLs.
+    :param Path_To_TXTs: a string with the name of the folder where all TXTs will be stored.
+    :return It creates all necessary TXT files in the TXTs folder.
     """
     Converting_Function(Path_To_PDFs, Path_To_TXTs)
 
 
 ################# Filtring Function and Cheking the keywords ######################################
 def Filtring_And_Checking_Keywords(Path_To_TXTs):
+
     """
-    :param Path_To_TXTs: the path to all TXTs
-    :return: Save results as excel file
+
+    This function consists in filtring articles according to types of batteries studied. It does not analyse reviews or
+    articles which not deal with Sodium-ion and Lithium-ion batteries, and also article where electrode composition is
+     not reported. This function also provides several folders containing articles where keywords are reported (or not), and
+      finally checks informations contained inside.
+
+    :param Path_To_TXTs: the path to all TXTs.
+    :return: folder and excel file where all necessary informations are reported.
     """
     files_short = np.array([f for f in os.listdir(Path_To_TXTs) if os.path.isfile(os.path.join(Path_To_TXTs, f))])
     files = np.array([Path_To_TXTs + '/' + f for f in files_short])
     Filtring_Function(files, Path_To_TXTs)
-    ###########################################################################
     batteries = ['Lithium Ion Battery', 'Sodium Ion Battery']
     for battery in batteries:
         temp_path = Path_To_TXTs + '/' + battery

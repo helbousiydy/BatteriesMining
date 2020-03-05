@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# __all__ = ['convert_pdf_to_txt', 'get_text_from_XML_without_saving', 'average_len', 'Converting_Function',
-#            'most_common']
-
 __all__ = ['Converting_Function']
 
 from pdfminer.pdfparser import PDFParser
@@ -19,9 +16,9 @@ import os
 from bs4 import BeautifulSoup
 import numpy as np
 
-##################### Get The first Page #############################
 laparams = pdfminer.layout.LAParams()
 setattr(laparams, 'all_texts', True)
+
 
 def convert_pdf_to_txt(path, pages):
     """
@@ -45,7 +42,6 @@ def convert_pdf_to_txt(path, pages):
     converter.close()
     fake_file_handle.close()
     return text
-#######################################################################
 
 
 class PDFPageDetailedAggregator(PDFPageAggregator):
