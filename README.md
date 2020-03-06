@@ -56,7 +56,7 @@ Testing dependencies
 
 To use tika library properly, you need to get Java 7+ installed on your system. 
 If you meet connexion's issues for tika server, please download manually a tika-server.jar file like the following
-``tika-server-1.19.jar``. then open Git bash and launch in you working folder :
+``tika-server-1.19.jar``. then open Git bash and launch in your working folder :
 ```
 java -jar tika-server-1.19.1.jar
 ```
@@ -71,8 +71,7 @@ There is a notebook as example providing what the library is able to do. Check i
 directly on the Github page, or with [Jupyter](https://jupyter.org/install) on your own session.
 
 Please note, due to rigth restrictions, all pdf for the notebook are not available. You will be able
-to see titles, without acces. That is why we recommand you to test functions on your own, not directly
-with the example provided.
+to see titles, without acces. That is why we recommand you to test functions on your own.
 
 
  Authors
@@ -94,4 +93,4 @@ This project is licensed under the **Licence PINE**
 
 Contributors
 ========================================================
-@helbousiydy, @MarcDuquesnoy
+@helbousiydy, @MarcDuquesnoy, @teo-lombrado-LRCS
