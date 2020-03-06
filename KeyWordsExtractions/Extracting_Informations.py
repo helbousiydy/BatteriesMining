@@ -158,7 +158,7 @@ def copy_paste_text1(file, path):
                 f.close()
                 f1.close()
         except:
-            print('There is an error during Copy_past!!!')
+            #print('There is an error during Copy_past!!!')
             pass
 
 
@@ -1025,8 +1025,8 @@ def Check_Keywords_CSV(temp_path):
     if keywords[0] == 'Electrode composition':
         keyword = keywords[0]
         for file in files:
-            print(file)
-            print('Article ', a, ': First filter with "Electrode composition"')
+            #print(file)
+            #print('Article ', a, ': First filter with "Electrode composition"')
             text_all = Clean_text(file)
             text_exp = Experimental(text_all)
             text = text_exp
@@ -1055,7 +1055,7 @@ def Check_Keywords_CSV(temp_path):
                     os.makedirs(path_yes)
                 copy_paste_text1(file, path_yes)
             a += 1
-        print('"Electrode composition" filter is finished')
+        #print('"Electrode composition" filter is finished')
         if keywords != []:
             temp_path = path + '/' + str(keyword) + '/' + keyword + '_Yes'
             if not os.path.exists(temp_path):
@@ -1065,8 +1065,8 @@ def Check_Keywords_CSV(temp_path):
             a = 1
             for file in files:
                 Range = False
-                print(file)
-                print('Article ', a, ': ')
+                #print(file)
+                #print('Article ', a, ': ')
                 text_all = Clean_text(file)
                 text_exp = Experimental(text_all)
                 text = text_exp
@@ -1198,6 +1198,8 @@ def Converting_From_PDF_OR_XML_To_TXT(Path_To_PDFs, Path_To_TXTs):
     """
     Converting_Function(Path_To_PDFs, Path_To_TXTs)
 
+    print('Extraction has just be done.')
+
 
 ################# Filtring Function and Cheking the keywords ######################################
 def Filtring_And_Checking_Keywords(Path_To_TXTs):
@@ -1223,3 +1225,5 @@ def Filtring_And_Checking_Keywords(Path_To_TXTs):
         results, range_Yes_No = Check_Keywords_CSV(temp_path)
         Save_results(results, temp_path)
         Save_results_range(range_Yes_No, temp_path)
+
+    print("Filtring and checking have just been done.")

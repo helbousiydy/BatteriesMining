@@ -93,4 +93,4 @@ This project is licensed under the **Licence PINE**
 
 Contributors
 ========================================================
-@helbousiydy, @MarcDuquesnoy, @teo-lombrado-LRCS
+@helbousiydy, @MarcDuquesnoy, @teo-lombrado-LRCS, @primo-emiliano
