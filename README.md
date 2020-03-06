@@ -71,7 +71,7 @@ There is a notebook as example providing what the library is able to do. Check i
 directly on the Github page, or with [Jupyter](https://jupyter.org/install) on your own session.
 
 Please note, due to rigth restrictions, all pdf for the notebook are not available. You will be able
-to see title, without acces. That is why we recommand you to test functions on your own, not directly
+to see titles, without acces. That is why we recommand you to test functions on your own, not directly
 with the example provided.
 
 
