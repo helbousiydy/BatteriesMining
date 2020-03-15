@@ -37,6 +37,6 @@ setup(
         "Topic :: Communications",
     ],
 
-    license="Licence PINE", install_requires=['nltk', 'xlsxwriter', 'pdfminer', 'tika=1.23.0']
+    license="Licence PINE", install_requires=['nltk', 'xlsxwriter', 'pdfminer', 'tika']
 
 )
