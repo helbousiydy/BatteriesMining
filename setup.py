@@ -7,7 +7,7 @@ import KeyWordsExtractions
 
 setup(
 
-    name='KeyWordsExtractions',
+    name='BATWOMAN',
 
     version=KeyWordsExtractions.__version__,
 
@@ -37,6 +37,6 @@ setup(
         "Topic :: Communications",
     ],
 
-    license="Licence PINE", install_requires=['nltk', 'xlsxwriter', 'pdfminer', 'tika']
+    license="Licence PINE", install_requires=['nltk', 'xlsxwriter', 'pdfminer', 'tika=1.23.0']
 
 )
