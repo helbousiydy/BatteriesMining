@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__version__ = "0.0.9"
+__version__ = "0.1.0"
 
 # from KeyWordsExtractions.Current_Density import *
 from BATWOMAN.Extracting_Informations import Converting_From_PDF_OR_XML_To_TXT,\
