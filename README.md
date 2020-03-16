@@ -1,10 +1,10 @@
-![baniere](https://user-images.githubusercontent.com/61732964/76735902-2ac37880-6766-11ea-849f-19e91ebd592c.png)
+![baniere](https://user-images.githubusercontent.com/61732964/76745075-86e1c900-6775-11ea-84cd-13b16a6833dd.png)
 
 BATWOMAN
 ========================================================
 
 
-Add your personnal description of your project (about the library) .. Hassna
+BATWOMAN (BATtery code for WOrds/numbers Mining and ANalysis) is an text mining tool which allows to determine if certain electrodes/cells features are reported in scientific articles for both Lithium- and Sodium-ion batteries and to calculate, throughout the Shannon Entropy, the complexity to recover them. Furthermore, it enables to classify the values associated to these keywords to either exact or range of values.
 
 Please, do not hesitate to discover the team of researchers behind the library and also the ARTISTIC project
 involved : [ARTISTIC](https://www.u-picardie.fr/erc-artistic/?L=0)
@@ -58,7 +58,7 @@ Testing dependencies
 ========================================================
 
 To use tika library properly, you need to get Java 7+ installed on your system. 
-If you meet connexion's issues for tika server, please download manually a tika-server.jar file like the following
+If you meet connexion's issues for tika server (especially with Windows), please download manually a tika-server.jar file like the following
 ``tika-server-1.19.jar``. then open Git bash and launch in your working folder :
 ```
 java -jar tika-server-1.19.1.jar

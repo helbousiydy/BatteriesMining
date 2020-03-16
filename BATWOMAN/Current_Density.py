@@ -240,8 +240,8 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
                 if words_yes[i - 1].replace('.', '').isdigit():
                     C_rate.append([str(words_yes[i - 1]) + 'mA/cm2', i])
             if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
-                for stuff in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
-                    C_rate.append([str(stuff) + 'mA/cm2', i])
+                for W_Ratio in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
+                    C_rate.append([str(W_Ratio) + 'mA/cm2', i])
             val = 0
             try:
                 if i > 0 and words_yes[i - 1].replace('.', '', 1).isdigit():
@@ -274,8 +274,8 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
                 if words_yes[i - 1].replace('.', '').isdigit():
                     C_rate.append([str(words_yes[i - 1]) + 'mA/g', i])
             if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
-                for stuff in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
-                    C_rate.append([str(stuff) + 'mA/g', i])
+                for W_Ratio in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
+                    C_rate.append([str(W_Ratio) + 'mA/g', i])
             val = 0
             try:
                 if i > 0 and words_yes[i - 1].replace('.', '', 1).isdigit():
@@ -307,8 +307,8 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
                 if words_yes[i - 1].replace('.', '').isdigit():
                     C_rate.append([str(words_yes[i - 1]) + 'A/kg', i])
             if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
-                for stuff in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
-                    C_rate.append([str(stuff) + 'A/Kg', i])
+                for W_Ratio in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
+                    C_rate.append([str(W_Ratio) + 'A/Kg', i])
             val = 0
             try:
                 if i > 0 and words_yes[i - 1].replace('.', '', 1).isdigit():
@@ -341,8 +341,8 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
                 if words_yes[i - 1].replace('.', '').isdigit():
                     C_rate.append([str(words_yes[i - 1]) + 'A/g', i])
             if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
-                for stuff in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
-                    C_rate.append([str(stuff) + 'A/g', i])
+                for W_Ratio in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
+                    C_rate.append([str(W_Ratio) + 'A/g', i])
             val = 0
             try:
                 if i > 0 and words_yes[i - 1].replace('.', '', 1).isdigit():
@@ -377,8 +377,8 @@ def get_Crate(indices_Crate_C, indices_Crate_mg, indices_Crate_Akg, indices_Crat
                     C_rate.append([str(words_yes[i - 1]) + 'A/g', i])
 
             if list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])) != []:
-                for stuff in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
-                    C_rate.append([str(stuff) + 'A/g', i])
+                for W_Ratio in list(re.findall(r"[-+]?\d*\.\d+|\d+", Multipl_Replace(words[i], T_replace, '')[:-1])):
+                    C_rate.append([str(W_Ratio) + 'A/g', i])
             val = 0
             try:
                 if i > 0 and words_yes[i - 1].replace('.', '', 1).isdigit():

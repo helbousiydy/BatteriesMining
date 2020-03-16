@@ -129,7 +129,6 @@ def Filtring_Classify(file):
     if part_2 != []:
         sub_text = part_2
     else:
-        #print('There is no (Introduction)!!!')
         No_Intro = True
 
     if No_Intro == False:
@@ -168,7 +167,6 @@ def copy_paste_text(file, path):
                 f.close()
                 f1.close()
         except:
-            #print('There is an error during Copy_past!!!')
             pass
 
 
@@ -402,7 +400,6 @@ def Filtring_Function(files, path):
                                         if any(item in abstract for item in battery):
                                             others = True
                                     if others == True:
-                                        #print('Not Lithium Not Sodium = ', numbers)
                                         name = 'Not_Lithium_Not_Sodium'
                                         directory = path + '/' + str(name)
                                         if not os.path.exists(directory):
@@ -410,7 +407,6 @@ def Filtring_Function(files, path):
                                         copy_paste_text(file, directory)
                                         Done = None
                             else:
-                                #print('Not Lithium Not Sodium = ', numbers)
                                 name = 'Not_Lithium_Not_Sodium'
                                 directory = path + '/' + str(name)
                                 if not os.path.exists(directory):
@@ -418,7 +414,6 @@ def Filtring_Function(files, path):
                                 copy_paste_text(file, directory)
                                 Done = None
                     else:
-                        #print('Not Lithium Not Sodium = ', numbers)
                         name = 'Not_Lithium_Not_Sodium'
                         directory = path + '/' + str(name)
                         if not os.path.exists(directory):
@@ -453,21 +448,19 @@ def Filtring_Function(files, path):
                                 if any(item in title for item in battery):
                                     others = True
                             if others == False:
-                                name = 'Articles_Without_Battery_Type'
+                                name = 'Not_Lithium_Not_Sodium'
                                 directory = path + '/' + str(name)
                                 if not os.path.exists(directory):
                                     os.makedirs(directory)
                                 copy_paste_text(file, directory)
                             else:
-                                #print('Not Lithium Not Sodium = ', numbers)
                                 name = 'Not_Lithium_Not_Sodium'
                                 directory = path + '/' + str(name)
                                 if not os.path.exists(directory):
                                     os.makedirs(directory)
                                 copy_paste_text(file, directory)
                     except:
-                       # print('there is an error = ', numbers)
-                        name = 'There_is_an_error'
+                        name = 'Not_Lithium_Not_Sodium'
                         directory = path + '/' + str(name)
                         if not os.path.exists(directory):
                             os.makedirs(directory)

@@ -164,7 +164,7 @@ def Converting_Function(Path_To_TXTs, new_file):
                             with open(path, 'w', encoding='utf8') as f:
                                 f.write(text_all)
                                 f.close()
-                            # print('Article ', name, ' is successfully converted')
+                            #print('Article ', name, ' is successfully converted')
                         elif len(text_all) >= 1500 and Not_Good == True:
                             rawText = parser.from_file(file)
                             text = rawText['content']
@@ -176,7 +176,7 @@ def Converting_Function(Path_To_TXTs, new_file):
                             with open(path, 'w', encoding='utf8') as f:
                                 f.write(text_all)
                                 f.close()
-                            # print('Article ', name, ' is successfully converted')
+                            #print('Article ', name, ' is successfully converted')
                         else:
                             raw = parser.from_file(file)
                             text_all = raw['content']
@@ -188,10 +188,10 @@ def Converting_Function(Path_To_TXTs, new_file):
                                 with open(path, 'w', encoding='utf8') as f:
                                     f.write(text_all)
                                     f.close()
-                                # print('Article ', name, ' is successfully converted')
+                                #print('Article ', name, ' is successfully converted')
                             else:
                                 pass
-                                # print('The PDF "' + file + '" contain less than 1500 characters !!!')
+                                #print('The PDF "' + file + '" contain less than 1500 characters !!!')
                     except:
                         Prob = True
                 elif average_len(lines) < 20 or Prob == True:
@@ -205,10 +205,10 @@ def Converting_Function(Path_To_TXTs, new_file):
                         with open(path, 'w', encoding='utf8') as f:
                             f.write(text_all)
                             f.close()
-                        # print('Article ', name, ' is successfully converted')
+                        #print('Article ', name, ' is successfully converted')
                     else:
                         pass
-                        # print('The PDF "' + file + '" contain less than 1500 characters !!!')
+                        #print('The PDF "' + file + '" contain less than 1500 characters !!!')
             except:
                 Prob = True
             if Prob == True:
@@ -222,10 +222,10 @@ def Converting_Function(Path_To_TXTs, new_file):
                     with open(path, 'w', encoding='utf8') as f:
                         f.write(text_all)
                         f.close()
-                    # print('Article ', name, ' is successfully converted')
+                    #print('Article ', name, ' is successfully converted')
                 else:
                     pass
-                    # print('The PDF "' + file + '" contain less than 1500 characters !!!')
+                    #print('The PDF "' + file + '" contain less than 1500 characters !!!')
         elif file.endswith('.xml'):
             text_all = get_text_from_XML_without_saving(file)
             text_all = text_all.split('competing financial interest')[0]
@@ -235,7 +235,7 @@ def Converting_Function(Path_To_TXTs, new_file):
             with open(path, 'w', encoding='utf8') as f:
                 f.write(text_all)
                 f.close()
-            # print('Article ', name, ' is successfully converted')
+            #print('Article ', name, ' is successfully converted')
 
 
 
