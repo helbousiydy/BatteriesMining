@@ -73,8 +73,8 @@ Example
 There is a notebook as example providing what the library is able to do. Check it 
 directly on the Github page, or with [Jupyter](https://jupyter.org/install) on your own session.
 
-Please note, due to rigth restrictions, all pdf for the notebook are not available. You will be able
-to see titles, without acces. That is why we recommand you to test functions on your own.
+Please note, due to rigth restrictions, all pdf for the notebook are not available.
+ That is why we recommand you to test functions on your own.
 
 
  Authors
