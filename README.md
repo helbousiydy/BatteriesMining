@@ -58,7 +58,8 @@ Testing dependencies
 ========================================================
 
 To use tika library properly, you need to get Java 7+ installed on your system. 
-If you meet connexion's issues for tika server (especially with Windows), please download manually a tika-server.jar file like the following
+If you meet connexion's issues for tika server (especially with Windows), please download manually
+a tika-server.jar file. YOu can download an example like :
 ``tika-server-1.19.jar``. then open Git bash and launch in your working folder :
 ```
 java -jar tika-server-1.19.1.jar
