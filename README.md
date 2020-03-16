@@ -1,4 +1,4 @@
-KeyWordsExtractions
+BATWOMAN
 ========================================================
 
 Add your personnal description of your project (about the library) .. Hassna
@@ -12,7 +12,7 @@ Setup
 We ask you to get a virtual environment such as **conda**. Go to their webpage and [download](https://www.anaconda.com/distribution/)
 it. All dependencies will be installed on your environment.
 
-Note that you need to follow the way below to install KeyWordsExtraction :
+Note that you need to follow the way below to install BATWOMAN :
 
 1. Be sure you have the Python version 3.7.
 2. Following Python libraries used to be already installed : tika, nltk, pdfminer.
@@ -26,7 +26,7 @@ Then click on 'download' inside the installation window.
 
 From this starting point, you can install the package with :
 ```python
-pip install KeyWordsExtractions
+pip install BATWOMAN
 ```
 
 or with the setup.py :

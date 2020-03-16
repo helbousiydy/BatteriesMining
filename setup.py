@@ -3,13 +3,13 @@
 
 from setuptools import setup, find_packages
 
-import KeyWordsExtractions
+import BATWOMAN
 
 setup(
 
     name='BATWOMAN',
 
-    version=KeyWordsExtractions.__version__,
+    version=BATWOMAN.__version__,
 
     packages=find_packages(),
 
