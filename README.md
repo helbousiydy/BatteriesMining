@@ -6,8 +6,7 @@ BATWOMAN
 
 BATWOMAN (BATtery code for WOrds/numbers Mining and ANalysis) is an text mining tool which allows to determine if certain electrodes/cells features are reported in scientific articles for both Lithium- and Sodium-ion batteries and to calculate, throughout the Shannon Entropy, the complexity to recover them. Furthermore, it enables to classify the values associated to these keywords to either exact or range of values.
 
-Please, do not hesitate to discover the team of researchers behind the library and also the ARTISTIC project
-involved : [ARTISTIC](https://www.u-picardie.fr/erc-artistic/?L=0)
+Please, do not hesitate to discover the team of researchers behind the library and also the ARTISTIC project involved : [ARTISTIC](https://www.u-picardie.fr/erc-artistic/?L=0)
 
 
 Setup
@@ -27,12 +26,7 @@ nltk.download()
 ```
 Then click on 'download' inside the installation window.
 
-From this starting point, you can install the package with :
-```python
-pip install BATWOMAN
-```
-
-or with the setup.py :
+From this starting point, you can install the package with the setup.py :
 
 1. Clone the repository
 2. Open a terminal into the directory at the root where the **setup.py** file is located,
@@ -57,9 +51,7 @@ python -m pip install --upgrade [name_of_package]
 Testing dependencies
 ========================================================
 
-To use tika library properly, you need to get Java 7+ installed on your system. 
-If you meet connexion's issues for tika server (especially with Windows), please download manually
-a tika-server.jar file. YOu can download an example like :
+To use tika library properly, you need to get Java 7+ installed on your system. If you meet connexion's issues for tika server (especially with Windows), please download manually a tika-server.jar file. YOu can download an example like :
 ``tika-server-1.19.jar``. then open Git bash and launch in your working folder :
 ```
 java -jar tika-server-1.19.1.jar
@@ -78,6 +70,8 @@ Please note, due to rigth restrictions, all pdf for the notebook are not availab
  That is why we recommand you to test functions on your own.
 
 
+
+
  Authors
  ========================================================
   - **Hassna EL-BOUSIYDY** , ALISTORE PhD student
@@ -85,15 +79,13 @@ Please note, due to rigth restrictions, all pdf for the notebook are not availab
  Contributing 
 ========================================================
 
-Pull requests are not allowed. For more informations about the library, please
- contact the authors.
- Do not hesitate to ask them if inappropriate bugs occur.
- 
+
+ Pull requests are not allowed. For more informations about the library, please contact the authors. Do not hesitate to ask them if inappropriate bugs occur.
  
  License
 ========================================================
 
-This project is licensed under the **Licence PINE**
+This project is licensed under the **MIT Licence**
 
 Contributors
 ========================================================
