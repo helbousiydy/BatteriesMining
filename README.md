@@ -4,6 +4,7 @@ BATWOMAN
 ========================================================
 
 
+
 BATWOMAN (BATtery code for WOrds/numbers Mining and ANalysis) is an text mining tool which allows to determine if certain electrodes/cells features are reported in scientific articles for both Lithium- and Sodium-ion batteries and to calculate, throughout the Shannon Entropy, the complexity to recover them. Furthermore, it enables to classify the values associated to these keywords to either exact or range of values.
 
 Please, do not hesitate to discover the team of researchers behind the library and also the ARTISTIC project involved : [ARTISTIC](https://www.u-picardie.fr/erc-artistic/?L=0)
@@ -86,6 +87,8 @@ Please note, due to rigth restrictions, all pdf for the notebook are not availab
 ========================================================
 
 This project is licensed under the **MIT Licence**
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3712053.svg)](https://doi.org/10.5281/zenodo.3712053)
 
 Contributors
 ========================================================

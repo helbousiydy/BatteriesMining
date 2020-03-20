@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# Copyright (c) 2020, Standardization of Experimental Battery Data Reports Towards Accelerated Research and
+#  Development by Artificial Intelligence, Hassna El-Bouysidy, Teo Lombardo, Emiliano Primo, Marc Duquesnoy,
+#   Mathieu Morcrette, Patrik Johansson, Patrice Simon, Jean-Marie Tarascon, Alexis Grimaud and Alejandro A. Franco
+
 import string
 import re
 import os
