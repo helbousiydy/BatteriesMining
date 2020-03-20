@@ -4,6 +4,8 @@
 # Copyright (c) 2020, Standardization of Experimental Battery Data Reports Towards Accelerated Research and
 #  Development by Artificial Intelligence, Hassna El-Bouysidy, Teo Lombardo, Emiliano Primo, Marc Duquesnoy,
 #   Mathieu Morcrette, Patrik Johansson, Patrice Simon, Jean-Marie Tarascon, Alexis Grimaud and Alejandro A. Franco
+# A question about the code ? Feel free to contact Hassna EL-BOUSIYDY (hassna.el.bousiydy@u-picardie.fr) and
+# Alejandro A. Franco (alejandro.franco@u-picardie.fr)
 
 __all__ = ['Converting_From_PDF_OR_XML_To_TXT', 'Filtring_And_Checking_Keywords']
 
