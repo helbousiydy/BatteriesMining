@@ -88,7 +88,7 @@ Please note, due to rigth restrictions, all pdf for the notebook are not availab
 
 This project is licensed under the **MIT Licence**
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3712053.svg)](https://doi.org/10.5281/zenodo.3712053)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4030828.svg)](https://doi.org/10.5281/zenodo.4030828)
 
 Contributors
 ========================================================
