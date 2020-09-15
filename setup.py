@@ -3,13 +3,13 @@
 
 from setuptools import setup, find_packages
 
-import BATWOMAN
+import BatteriesMining
 
 setup(
 
-    name='BATWOMAN',
+    name='BatteriesMining',
 
-    version=BATWOMAN.__version__,
+    version=BatteriesMining.__version__,
 
     packages=find_packages(),
 
@@ -25,7 +25,7 @@ setup(
 
     include_package_data=True,
 
-    url='https://github.com/helbousiydy/KeyWordsExtractions',
+    url='https://github.com/helbousiydy/BatteriesMining',
 
     classifiers=[
         "Programming Language :: Python",

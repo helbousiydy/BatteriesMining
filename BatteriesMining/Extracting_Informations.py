@@ -15,9 +15,9 @@ from nltk.corpus import stopwords
 import re
 import string
 import itertools
-from BATWOMAN.Current_Density import get_Crate, indices_Crate
-from BATWOMAN.Filtring_Functions import Filtring_Function
-from BATWOMAN.Converting_PDF_Or_XML_To_TXT import Converting_Function
+from BatteriesMining.Current_Density import get_Crate, indices_Crate
+from BatteriesMining.Filtring_Functions import Filtring_Function
+from BatteriesMining.Converting_PDF_Or_XML_To_TXT import Converting_Function
 import os
 import numpy as np
 import xlsxwriter
