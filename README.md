@@ -60,15 +60,6 @@ java -jar tika-server-1.19.1.jar
 
 A disconnected server is now running. You can now launch again your code for the extraction of PDF.
 
-Example
-========================================================
-
-
-There is a notebook as example providing what the library is able to do. Check it 
-on the .zip thanks to [Jupyter](https://jupyter.org/install) on your own session.
-
-Please note, due to rigth restrictions, all pdf for the notebook are not available.
- That is why we recommand you to test functions on your own.
 
 
 
