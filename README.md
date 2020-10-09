@@ -79,7 +79,7 @@ A disconnected server is now running. You can now launch again your code for the
 
 This project is licensed under the **MIT Licence**
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4030828.svg)](https://doi.org/10.5281/zenodo.4030828)
+[![DOI](https://zenodo.org/badge/244592442.svg)](https://zenodo.org/badge/latestdoi/244592442)
 
 Contributors
 ========================================================
