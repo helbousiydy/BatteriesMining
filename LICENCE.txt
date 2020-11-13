@@ -1,8 +1,7 @@
 MIT License
 
-Copyright (c) 2020, Standardization of Experimental Battery Data Reports Towards Accelerated Research and
- Development by Artificial Intelligence, Hassna El-Bouysidy, Teo Lombardo, Emiliano Primo, Marc Duquesnoy,
-  Mathieu Morcrette, Patrik Johansson, Patrice Simon, Jean-Marie Tarascon, Alexis Grimaud and Alejandro A. Franco
+Copyright (c) 2020, "What can text mining tell us about lithium-ion battery researchers’ habits?" by Hassna El-Bouysidy, Teo Lombardo, Emiliano Primo, Marc Duquesnoy,
+  Mathieu Morcrette, Patrik Johansson, Patrice Simon, Alexis Grimaud and Alejandro A. Franco
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
